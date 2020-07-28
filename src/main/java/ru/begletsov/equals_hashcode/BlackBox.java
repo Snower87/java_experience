@@ -1,13 +1,14 @@
 package ru.begletsov.equals_hashcode;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
  * Класс BlackBox тестирование методов equals, hashCode для классов
- * 1) создание класса
+ * 1) создание класса 2) добавил метод findObkectBlackBox по поиску коробки по hashCode
  * @author Sergei Begletsov
  * @since 27.07.2020
- * @version 1
+ * @version 2
  */
 
 public class BlackBox {
@@ -43,6 +44,28 @@ public class BlackBox {
         System.out.println("equals blackA -> copyBlackA: " + blackA.equals(copyBlackA)); //true
     }
 
+    public static void findObkectBlackBox() {
+        List<BlackBox> blackBoxList = List.of(
+                new BlackBox(12, 34),
+                new BlackBox(13, 22),
+                new BlackBox(14, 45),
+                new BlackBox(15, 67),
+                new BlackBox(10, 10),
+                new BlackBox(16, 89)
+        );
+        BlackBox BoxA = new BlackBox(10,10);
+
+        for (BlackBox blackBox: blackBoxList) {
+            if (blackBox.hashCode() == BoxA.hashCode()) {
+                if (blackBox.equals(BoxA)) {
+                    System.out.println("Коробка <BoxA> найдена! Box.hash = " + BoxA.hashCode());
+                }
+            } else {
+                System.out.println("Коробка не совпала. Box.hash = " + blackBox.hashCode());
+            }
+        }
+    }
+
     public BlackBox(int varA, int varB) {
         this.varA = varA;
         this.varB = varB;
@@ -63,6 +86,7 @@ public class BlackBox {
     }
 
     public static void main(String[] args) {
-        BlackBox.showEqualsBlackBoxObjectAandB();
+        //BlackBox.showEqualsBlackBoxObjectAandB();
+        BlackBox.findObkectBlackBox();
     }
 }
