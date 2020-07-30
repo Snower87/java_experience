@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Class crudAtList CRUD (Create Read Update Delete) для коллекции List
- * 1) создание класса
+ * 1) создание класса 2) добавил метод add(index, element) - добавление элемента со смещением
  * @author Sergei Begletsov
  * @since 30.07.2020
  * @version 1
@@ -41,6 +41,7 @@ public class crudAtList {
         //================================================================================
         // Методы работы со списом List:
         // 1) add(element) - добавление элемента в конец списка
+        //    add(index, element) - добавление элемента со смещением
         // 2) get(index) - получение элемента по индексу
         // 3) indexOf(element) - получение индекса элемента для переданного элемента
         // 4) contains(element) - сообщает о присутствии элемента в коллекции
@@ -79,6 +80,10 @@ public class crudAtList {
         emailList.set(0, "error01");
         emailList.set(1, "error02");
         System.out.println("Список после замены:");
+        showList(emailList);
+        System.out.println("12. Добавление элемента по 0-му индексу:");
+        emailList.add(0, "xottab@gmail.ru");
+        System.out.println("Список после добавления по 0-му индексу:");
         showList(emailList);
 
 
@@ -126,6 +131,10 @@ public class crudAtList {
         studentList.set(0, kolia);
         studentList.set(1, vasia);
         System.out.println("Список после замены:");
+        showList(studentList);
+        System.out.println("12. Добавление элемента по 0-му индексу:");
+        studentList.add(0, new Student("Петрович", 42));
+        System.out.println("Список после добавления по 0-му индексу:");
         showList(studentList);
     }
 }
