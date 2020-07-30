@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Класс Student тестирование методов equals, hashCode для классов
- * 1) создание класса
+ * 1) создание класса 2) переопредлил метод toString
  * @author Sergei Begletsov
  * @since 27.07.2020
  * @version 1
@@ -114,5 +114,13 @@ public class Student {
     public static void main(String[] args) {
         //Student.showEqualsAndHashcodeObjectUser();
         Student.showEqualsAndHashcodeString();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

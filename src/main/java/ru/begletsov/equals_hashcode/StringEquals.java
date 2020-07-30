@@ -2,7 +2,7 @@ package ru.begletsov.equals_hashcode;
 
 /**
  * Класс StringEquals тестирование на равенство объектов класса String
- * 1) создание класса
+ * 1) создание класса 2) комментарий попровил
  * @author Sergei Begletsov
  * @since 28.07.2020
  * @version 1
@@ -30,7 +30,7 @@ public class StringEquals {
         System.out.println(findAnimal.hashCode() == dog.hashCode());
 
         System.out.println();
-        System.out.println("findAnimal == dogString?");
+        System.out.print("findAnimal == dogString? ");
         System.out.println(findAnimal == dogString);
         System.out.print("findAnimal.equals(dogString)? ");
         System.out.println(findAnimal.equals(dogString));
@@ -40,7 +40,7 @@ public class StringEquals {
         System.out.println(findAnimal.hashCode() == dogString.hashCode());
 
         System.out.println();
-        System.out.println("dogString2 == dogString2?");
+        System.out.print("dogString2 == dogString2? ");
         System.out.println(dogString2 == dogString);
         System.out.print("dogString2.equals(findAnimal)? ");
         System.out.println(dogString2.equals(findAnimal));
