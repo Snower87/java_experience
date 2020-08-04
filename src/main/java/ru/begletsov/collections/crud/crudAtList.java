@@ -1,6 +1,7 @@
 package ru.begletsov.collections.crud;
 
 import ru.begletsov.equals_hashcode.Student;
+import ru.begletsov.time_exec.TimeExec;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Class crudAtList CRUD (Create Read Update Delete) для коллекции List
  * 1) создание класса 2) добавил метод add(index, element) - добавление элемента со смещением
+ * 3) добавил методы при работе с LinkedList: getFirst, getLast, addFirst, addLast.
  * @author Sergei Begletsov
  * @since 30.07.2020
  * @version 1
@@ -29,7 +31,7 @@ public class crudAtList {
         emailList.add("third@bk.com");
         emailList.add("fourth@hh.ru");
 
-        List<Student> studentList = new LinkedList<>();
+        LinkedList<Student> studentList = new LinkedList<>();
         studentList.add(new Student("Петя", 20));
         studentList.add(new Student("Ваня", 18));
         studentList.add(new Student("Саня", 17));
@@ -87,6 +89,13 @@ public class crudAtList {
         showList(emailList);
 
 
+        //================================================================================
+        // Добавил методы работы со списом LinkedList:
+        // 1) getFirst - получение 1го элемента списка
+        // 2) getLast - получение последнего элемента списка
+        // 3) addFirst - добавление в начало двусвязного списка
+        // 4) addLast - добавление в конец списка
+        //================================================================================
         System.out.println();
         System.out.println();
         System.out.println();
@@ -95,8 +104,12 @@ public class crudAtList {
         System.out.println("Работа с массивом List<Student> studentList = new LinkedList<>();");
         System.out.print("1. Первый элемент ArrayList: ");
         System.out.println(studentList.get(0));
+        System.out.print("1.1 Первый элемент ArrayList через getFirst(): ");
+        System.out.println(studentList.getFirst());
         System.out.print("2. Последний элемент ArrayList: ");
         System.out.println(studentList.get(studentList.size() - 1));
+        System.out.print("2.1 Последний элемент ArrayList через getLast(): ");
+        System.out.println(studentList.getLast());
         System.out.print("3. Получение произвольного элемента ArrayList по индексу: ");
         System.out.println(studentList.get(2));
         System.out.print("4. Поиск индекса элемента Student(\"Петя\", 20): ");
@@ -136,5 +149,8 @@ public class crudAtList {
         studentList.add(0, new Student("Петрович", 42));
         System.out.println("Список после добавления по 0-му индексу:");
         showList(studentList);
+        System.out.println("13. Получение first элемента списка: " + studentList.getFirst());
+        System.out.println("14. Получение last элемента списка: " + studentList.getLast());
+        System.out.println("15. Получение поля name для first элемента списка: " + studentList.getFirst().getName());
     }
 }
