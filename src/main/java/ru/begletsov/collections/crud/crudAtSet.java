@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * Class crudAtSet CRUD (Create Read Update Delete) для коллекции Set
- * 1) создание класса
+ * 1) создание класса 2) добавил новые методы работы с коллекциями Set
  * @author Sergei Begletsov
  * @since 09.09.2020
  * @version 1
@@ -61,6 +61,9 @@ public class crudAtSet {
         // 1) add(element) - добавление элемента в конец списка
         // 2) contains(element) - сообщает о присутствии элемента в коллекции
         // 3) remove(index/value) - удаление элемента по индексу/значению
+        // Добавил методы:
+        // 4) isEmpty - cообщает пустая коллекция или нет
+        // 5) addAll - переводит все элементы коллекции из Set -> List
         //================================================================================
         System.out.println("Работа с набором Set<String> fruits = new HashSet<>();");
         System.out.print("1. Первый элемент HashSet: ");
@@ -91,5 +94,20 @@ public class crudAtSet {
         }
         System.out.println("Список после замены:");
         showSet(fruits);
+        System.out.println("7. Список students пустой?");
+        System.out.println(students.isEmpty());
+        Set student33 = new LinkedHashSet();
+        System.out.println("Список students33 пустой?");
+        System.out.println(student33.isEmpty());
+        List<Student> studentList = new ArrayList<>();
+        studentList.addAll(students);
+        System.out.println("8. Преобразование Set -> List");
+        System.out.println("Вывести содержимое наборка Set:");
+        studentList.stream().forEach(System.out::println);
+        System.out.println("9. Вывод содержимого fruits через итератор:");
+        Iterator iterFruits = fruits.iterator();
+        while (iterFruits.hasNext()) {
+            System.out.println(iterFruits.next());
+        }
     }
 }
