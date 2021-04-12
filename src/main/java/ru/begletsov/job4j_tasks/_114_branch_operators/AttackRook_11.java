@@ -11,7 +11,7 @@ package ru.begletsov.job4j_tasks._114_branch_operators;
  * тогда метод должен вернуть true (второй символ - это цифра строки, где стоит фигура);
  * Во всех остальных случаях метод должен вернуть false.
  * @author Sergei Begletsov
- * @since 09.04.2021
+ * @since 12.04.2021
  * @version 1
  */
 
