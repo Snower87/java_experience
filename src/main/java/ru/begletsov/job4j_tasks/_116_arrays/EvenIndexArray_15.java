@@ -12,16 +12,23 @@ package ru.begletsov.job4j_tasks._116_arrays;
  * правильно организовать цикл для обхода массива, а также написать условие в if чтобы определять четность индекса.
  * @author Sergei Begletsov
  * @since 19.04.2021
- * @version 1
+ * @version 2
  */
 
 public class EvenIndexArray_15 {
     public static void main(String[] args) {
         int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        //Вариант №1
+        /*
         for (int i = 0; i < array.length; i++) {
             if (i % 2 == 0) {
                 System.out.println(array[i]);
             }
+        }
+        */
+        //Вариант №2
+        for (int i = 0; i < array.length; i+=2) {
+            System.out.println(array[i]);
         }
     }
 }
