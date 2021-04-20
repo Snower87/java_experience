@@ -1,0 +1,31 @@
+package ru.begletsov.job4j_tasks._116_arrays;
+
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
+public class OddIndexPrint_19Test {
+    @Test
+    public void whenNonEmpty() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        OddIndexPrint_19.print(new int[] {1, 2, 3});
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "1" + ln +
+                        "3" + ln
+        ));
+    }
+
+    @Test
+    public void whenEmpty() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        OddIndexPrint_19.print(new int[] {2, 4, 6});
+        assertThat(out.toString(), is(""));
+    }
+}
