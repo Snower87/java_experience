@@ -1,4 +1,4 @@
-package ru.begletsov.structure_of_data.examples.linkedList.axis_net;
+package ru.begletsov.structure_of_data.linkedList.axis_net;
 
 /**
  * @Задание Создание и разбор алгоритма работы односвязанного списка
