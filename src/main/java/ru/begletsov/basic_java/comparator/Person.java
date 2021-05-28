@@ -1,6 +1,7 @@
 package ru.begletsov.basic_java.comparator;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,6 +27,13 @@ public class Person implements Comparable<Person> {
         list.stream().map((x) -> x.getName()).forEach(System.out::println);
     }
 
+    static class InnerPersonComparator implements Comparator<Person> {
+        @Override
+        public int compare(Person a, Person b) {
+            return Integer.compare(b.getName().length(), a.getName().length()); //по-убыванию длины строки
+        }
+    }
+
     public static void main(String[] args) {
         List<Person> personList = new LinkedList<>();
         Person andrey = new Person("andrey");
@@ -46,5 +54,16 @@ public class Person implements Comparable<Person> {
         System.out.println("После сортировки:");
         Collections.sort(personList);
         showInfo(personList);
+        System.out.println();
+
+        System.out.println("После сортировки компаратором PersonComparator:");
+        personList.sort(new PersonComparator());
+        showInfo(personList);
+        System.out.println();
+
+        System.out.println("После сортировки компаратором static PersonComparator:");
+        personList.sort(new InnerPersonComparator());
+        showInfo(personList);
+        System.out.println();
     }
 }
