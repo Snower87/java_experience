@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1
  */
 
-public class Exercise_1 {
+public class AddElements_1 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
         list.add("red");
