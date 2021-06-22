@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Задание 5. Обновление элемента по индексу
+ * @Задание 6. Удаление элемента по индексу
  * @Раздел Коллекция ArrayList
- * @Описание Напишите программу на Java для обновления определенного элемента массива по заданному элементу.
+ * @Описание Напишите Java-программу для удаления третьего элемента из списка массивов.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
  * @author Sergei Begletsov
  * @since 22.06.2021
  * @version 1
  */
 
-public class RewriteElementByIndex_5 {
+public class RemoveElementByIndex_6 {
     public static void main(String[] args) {
         //create list and add some elements
         List<String> colors = new ArrayList<String>();
@@ -23,10 +23,10 @@ public class RewriteElementByIndex_5 {
         colors.add("green");
         //print the list BEFORE
         System.out.println("BEFORE: " + colors);
-        colors.set(0, "red2");
-        int indexGreen = colors.indexOf("green");
-        colors.set(indexGreen, "green2");
         //print the list AFTER
-        System.out.println("AFTER: " + colors);
+        colors.remove(2);
+        System.out.println("AFTER1: " + colors);
+        colors.remove(0);
+        System.out.println("AFTER2: " + colors);
     }
 }
