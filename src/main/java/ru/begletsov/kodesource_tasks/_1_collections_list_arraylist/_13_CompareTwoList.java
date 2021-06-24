@@ -3,7 +3,7 @@ package ru.begletsov.kodesource_tasks._1_collections_list_arraylist;
 import java.util.ArrayList;
 
 /**
- * @Задание 12. Сравнение 2х списков
+ * @Задание 13. Сравнение 2х списков
  * @Раздел Коллекция ArrayList
  * @Описание Напишите программу на Java для сравнения двух списков массивов.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
