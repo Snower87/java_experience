@@ -13,7 +13,7 @@ import java.util.List;
  * @version 1
  */
 
-public class RewriteElementByIndex_5 {
+public class _5_RewriteElementByIndex {
     public static void main(String[] args) {
         //create list and add some elements
         List<String> colors = new ArrayList<String>();

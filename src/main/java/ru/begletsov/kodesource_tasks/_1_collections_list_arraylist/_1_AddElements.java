@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1
  */
 
-public class AddElements_1 {
+public class _1_AddElements {
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
         list.add("red");

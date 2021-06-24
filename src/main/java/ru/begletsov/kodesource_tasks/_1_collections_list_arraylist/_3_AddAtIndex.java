@@ -13,7 +13,7 @@ import java.util.List;
  * @version 1
  */
 
-public class AddAtIndex_3 {
+public class _3_AddAtIndex {
     public static void main(String[] args) {
         //create list and add some elements
         List<String> colors = new ArrayList<String>();

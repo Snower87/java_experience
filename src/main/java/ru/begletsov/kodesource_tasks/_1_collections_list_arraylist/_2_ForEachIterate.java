@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1
  */
 
-public class ForEachIterate_2 {
+public class _2_ForEachIterate {
     public static void iterateMethodFirst() {
         System.out.println("First method iterate (for-each):");
         //create list and add some elements
