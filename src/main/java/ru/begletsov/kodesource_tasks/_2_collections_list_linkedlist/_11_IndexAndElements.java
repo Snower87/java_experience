@@ -1,6 +1,7 @@
 package ru.begletsov.kodesource_tasks._2_collections_list_linkedlist;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
 public class _11_IndexAndElements {
     public static void main(String[] args) {
         //create list and add some elements
-        List<String> colors = new ArrayList<String>();
+        LinkedList<String> colors = new LinkedList<>();
         colors.add("red");
         colors.add("white");
         colors.add("blue");
