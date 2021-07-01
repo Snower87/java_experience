@@ -1,28 +1,28 @@
-package ru.begletsov.kodesource_tasks._1_collections_list_arraylist;
+package ru.begletsov.kodesource_tasks._2_collections_list_linkedlist;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
- * @Задание 13. Сравнение 2х списков
- * @Раздел Коллекция ArrayList
- * @Описание Напишите программу на Java для сравнения двух списков массивов.
+ * @Задание 24. Сравнение двух списков
+ * @Раздел Коллекция LinkedList
+ * @Описание Напишите программу на Java для сравнения двух связанных списков.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
  * @author Sergei Begletsov
- * @since 24.06.2021
+ * @since 01.07.2021
  * @version 1
  */
 
-public class _13_CompareTwoList {
+public class _24_CompareTwoList {
     public static void main(String[] args) {
         //create list1 and add some elements
-        ArrayList<String> color1= new ArrayList<String>();
+        LinkedList<String> color1= new LinkedList<>();
         color1.add("Red");
         color1.add("Green");
         color1.add("Black");
         color1.add("White");
         color1.add("Pink");
         //create list2 and add some elements
-        ArrayList<String> color2= new ArrayList<String>();
+        LinkedList<String> color2= new LinkedList<>();
         color2.add("Red");
         color2.add("Green");
         color2.add("Black");
