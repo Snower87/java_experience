@@ -1,0 +1,30 @@
+package ru.begletsov.kodesource_tasks._3_collections_set_hashset;
+
+import java.util.*;
+
+/**
+ * @Задание 9. Преобразовать набор Set в список List / ArrayList
+ * @Раздел Коллекция HashSet
+ * @Описание Напишите Java-программу для преобразования хэш-набора в List / ArrayList.
+ * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
+ * @author Sergei Begletsov
+ * @since 07.07.2021
+ * @version 1
+ */
+
+public class _9_ConvertSetToArrayList {
+    public static void main(String[] args) {
+        // Create a empty hash set
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("white");
+        hashSet.add("black");
+        hashSet.add("orange");
+        hashSet.add("blue");
+        //print hash set
+        System.out.println("hashSet: " + hashSet);
+        // Create a empty array list
+        List<String> arrayList = new ArrayList<>(hashSet);
+        //print array list elements
+        System.out.println("arrayList: " + arrayList);
+    }
+}
