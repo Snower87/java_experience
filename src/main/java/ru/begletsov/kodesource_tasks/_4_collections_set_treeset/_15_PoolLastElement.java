@@ -3,16 +3,16 @@ package ru.begletsov.kodesource_tasks._4_collections_set_treeset;
 import java.util.TreeSet;
 
 /**
- * @Задание 14. Получить и удалить первый элемент
+ * @Задание 15. Получить и удалить последний элемент
  * @Раздел Коллекция TreeSet
- * @Описание Напишите Java-программу для извлечения и удаления первого элемента набора деревьев .
+ * @Описание Напишите программу на Java для извлечения и удаления последнего элемента набора деревьев.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
  * @author Sergei Begletsov
  * @since 09.07.2021
  * @version 1
  */
 
-public class _14_PoolFirstElement {
+public class _15_PoolLastElement {
     public static void main(String[] args) {
         TreeSet<Integer> treeNum = new TreeSet<Integer>();
         treeNum.add(10);
@@ -25,7 +25,7 @@ public class _14_PoolFirstElement {
         treeNum.add(89);
         treeNum.add(14);
         System.out.println("Original treeNum: " + treeNum);
-        System.out.println("Poll first element: " + treeNum.pollFirst());
+        System.out.println("Poll last element: " + treeNum.pollLast());
         System.out.println("After pool treeNum: " + treeNum);
     }
 }
