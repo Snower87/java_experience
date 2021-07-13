@@ -13,7 +13,7 @@ import java.util.Map;
  * @version 1
  */
 
-public class _1_AddElements {
+public class _1_PutElements {
     public static void main(String[] args) {
         HashMap<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Red");
