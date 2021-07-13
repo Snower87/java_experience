@@ -6,7 +6,7 @@ import java.util.TreeMap;
 /**
  * @Задание 1. Добавьте элементы в карту TreeMap
  * @Раздел Коллекция TreeMap
- * @Описание Напишите программу на Java, чтобы связать указанное значение с указанным ключом в HashMap.
+ * @Описание Напишите программу на Java, чтобы связать указанное значение с указанным ключом в древовидной карте.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
  * @author Sergei Begletsov
  * @since 13.07.2021
