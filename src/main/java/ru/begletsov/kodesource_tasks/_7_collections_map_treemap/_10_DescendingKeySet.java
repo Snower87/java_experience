@@ -8,7 +8,7 @@ import java.util.TreeMap;
  * @Описание Напишите программу на Java, чтобы получить представление в обратном порядке ключей, содержащихся в данной карте.
  * ссылка на задание: http://kodesource.top/java-exercises/collection/index.php
  * @author Sergei Begletsov
- * @since 15.07.2021
+ * @since 16.07.2021
  * @version 1
  */
 
