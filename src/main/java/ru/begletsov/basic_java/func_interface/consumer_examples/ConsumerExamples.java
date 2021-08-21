@@ -1,4 +1,4 @@
-package ru.begletsov.basic_java.func_interface.consumer_ex;
+package ru.begletsov.basic_java.func_interface.consumer_examples;
 
 import java.util.HashSet;
 import java.util.List;
