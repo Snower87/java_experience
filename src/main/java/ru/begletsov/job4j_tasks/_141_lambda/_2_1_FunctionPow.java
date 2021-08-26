@@ -12,11 +12,11 @@ import java.util.function.Function;
  */
 
 public class _2_1_FunctionPow {
-    public static double calculate(double y) {
-        return calculate(x -> Math.pow(x, 2), y);
+    public static double calculate(double x) {
+        return calculate(y -> Math.pow(y, 2), x);
     }
 
-    public static double calculate(Function<Double, Double> x, double y) {
-        return x.apply(y);
+    public static double calculate(Function<Double, Double> func, double x) {
+        return func.apply(x);
     }
 }

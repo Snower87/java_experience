@@ -16,7 +16,7 @@ public class _2_2_FunctionSqrt {
         return calculate(y -> Math.sqrt(y), x);
     }
 
-    public static double calculate(Function<Double, Double> y, double x) {
-        return y.apply(x);
+    public static double calculate(Function<Double, Double> func, double x) {
+        return func.apply(x);
     }
 }
