@@ -44,6 +44,56 @@ public class FarmerAppleTest {
     }
 
     @Test
+    public void testFilterApplesFromPredicateIdMore3() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(apple -> apple.getId() >= 3), is(expected));
+    }
+
+    @Test
+    public void testFilterApplesFromPredicateRedColor() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(apple -> apple.getColor() == Apple.COLOR.RED), is(expected));
+    }
+
+    @Test
+    public void testFilterApplesFromPredicateRedColorAndOdd() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.RED, 3)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(apple -> (apple.getId() % 2 != 0 ) && apple.getColor() == Apple.COLOR.RED), is(expected));
+    }
+
+    @Test
     public void testGetGreenApples() {
         List<Apple> list = Arrays.asList(
                 new Apple(Apple.COLOR.RED, 1),

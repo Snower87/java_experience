@@ -2,14 +2,15 @@ package ru.begletsov.basic_java.lambda.lambda1_examples;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** FarmerApple - класс-сервис для хозяйства фермера 1) создание класса, добавление метода filterGreenApples() -
  * - с обходом всех элементов через цикл for 2) добавил методы getGreenApples(), getRedApples() + тесты к ним
  * 3) добавил метод filterGreenApples с поиском по нужному цвету 4) добавил метод filterGreenApples с множеством
- * непонятных пар-ов (пример bad параметризации)
+ * непонятных пар-ов (пример bad параметризации) 5) добавил фильтрацию через Predicate
  * @author Sergei Begletsov
  * @since 26.08.2021
- * @version 3
+ * @version 5
  */
 
 public class FarmerApple {
@@ -84,6 +85,21 @@ public class FarmerApple {
         for (Apple apple: apples) {
             if (apple.getColor().equals(color) ||
                     (!flag && apple.getId() < 3)) {
+                rsl.add(apple);
+            }
+        }
+        return rsl;
+    }
+
+    /**
+     * Фильтрация списка яблок через Predicate (тест)
+     * @param predicate заданные условия
+     * @return список яблок по необходимым условиям
+     */
+    public List<Apple> filterGreenApples(Predicate<Apple> predicate) {
+        List<Apple> rsl = new ArrayList<>();
+        for (Apple apple: apples) {
+            if (predicate.test(apple)) {
                 rsl.add(apple);
             }
         }
