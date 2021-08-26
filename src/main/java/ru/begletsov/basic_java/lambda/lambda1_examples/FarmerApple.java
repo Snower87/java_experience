@@ -5,9 +5,11 @@ import java.util.List;
 
 /** FarmerApple - класс-сервис для хозяйства фермера 1) создание класса, добавление метода filterGreenApples() -
  * - с обходом всех элементов через цикл for 2) добавил методы getGreenApples(), getRedApples() + тесты к ним
+ * 3) добавил метод filterGreenApples с поиском по нужному цвету 4) добавил метод filterGreenApples с множеством
+ * непонятных пар-ов (пример bad параметризации)
  * @author Sergei Begletsov
  * @since 26.08.2021
- * @version 2
+ * @version 3
  */
 
 public class FarmerApple {
@@ -46,9 +48,42 @@ public class FarmerApple {
      * @return список зеленых яблок
      */
     public List<Apple> filterGreenApples() {
-        List<Apple>rsl = new ArrayList<>();
+        List<Apple> rsl = new ArrayList<>();
         for (Apple apple: apples) {
             if (apple.getColor().equals(Apple.COLOR.GREEN)) {
+                rsl.add(apple);
+            }
+        }
+        return rsl;
+    }
+
+    /**
+     * Фильтрация/поиск яблок необходимого цвета
+     * @param color искомый цвет
+     * @return список яблок "нужного" цвета
+     */
+    public List<Apple> filterGreenApples(Apple.COLOR color) {
+        List<Apple> rsl = new ArrayList<>();
+        for (Apple apple: apples) {
+            if (apple.getColor().equals(color)) {
+                rsl.add(apple);
+            }
+        }
+        return rsl;
+    }
+
+    /**
+     * Плохая фильтрация/поиск яблок необходимого цвета (пример плохой реализации)
+     * @param color искомый цвет
+     * @param id искомый идентификатор
+     * @param flag флаг поиска (актуален/неактуален поиск)
+     * @return список яблок по требуемым пар-ам
+     */
+    public List<Apple> filterGreenApples(Apple.COLOR color, double id, boolean flag) {
+        List<Apple> rsl = new ArrayList<>();
+        for (Apple apple: apples) {
+            if (apple.getColor().equals(color) ||
+                    (!flag && apple.getId() < 3)) {
                 rsl.add(apple);
             }
         }

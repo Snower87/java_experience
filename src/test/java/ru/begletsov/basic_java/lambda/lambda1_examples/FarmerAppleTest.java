@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class FarmerAppleTest {
     @Test
-    public void whenWait3GreenApple() {
+    public void whenWait2GreenApple() {
         List<Apple> list = Arrays.asList(
                 new Apple(Apple.COLOR.RED, 1),
                 new Apple(Apple.COLOR.GREEN, 2),
@@ -24,6 +24,23 @@ public class FarmerAppleTest {
         );
         assertThat(new FarmerApple(list).filterGreenApples(), is(expected));
         assertThat(new FarmerApple(list).filterGreenApples().size(), is(2));
+    }
+
+    @Test
+    public void whenWait3RedAppleParamColor() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(Apple.COLOR.RED), is(expected));
     }
 
     @Test
