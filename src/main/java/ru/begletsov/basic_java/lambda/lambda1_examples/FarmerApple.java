@@ -3,6 +3,7 @@ package ru.begletsov.basic_java.lambda.lambda1_examples;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /** FarmerApple - класс-сервис для хозяйства фермера 1) создание класса, добавление метода filterGreenApples() -
@@ -10,10 +11,10 @@ import java.util.function.Predicate;
  * 3) добавил метод filterGreenApples с поиском по нужному цвету 4) добавил метод filterGreenApples с множеством
  * непонятных пар-ов (пример bad параметризации) 5) добавил фильтрацию через Predicate 6) добавил фильтрацию черех
  * ApplePredicate 7) добавил гибкий метод prettyPrintApple для вывода инф. на консоль 8) параметризация поведения
- * методов через анонимный класс
+ * методов через анонимный класс 9) упрошение кода через лямбда-выражения
  * @author Sergei Begletsov
  * @since 26.08.2021
- * @version 8
+ * @version 9
  */
 
 public class FarmerApple {
@@ -162,5 +163,14 @@ public class FarmerApple {
             }
         });
         System.out.println();
+
+        //3. Использование лямбда-выражения
+        List<Apple> greenApples = new FarmerApple(list).filterGreenApples(apple -> Apple.COLOR.GREEN.equals(apple.getColor()));
+        new FarmerApple(greenApples).prettyPrintApple(new AppleFormatter() {
+            @Override
+            public String accept(Apple apple) {
+                return "Lambda apple - id (" + apple.getId() + ")";
+            }
+        });
     }
 }
