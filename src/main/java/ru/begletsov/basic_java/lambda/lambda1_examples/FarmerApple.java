@@ -9,10 +9,11 @@ import java.util.function.Predicate;
  * - с обходом всех элементов через цикл for 2) добавил методы getGreenApples(), getRedApples() + тесты к ним
  * 3) добавил метод filterGreenApples с поиском по нужному цвету 4) добавил метод filterGreenApples с множеством
  * непонятных пар-ов (пример bad параметризации) 5) добавил фильтрацию через Predicate 6) добавил фильтрацию черех
- * ApplePredicate 7) добавил гибкий метод prettyPrintApple для вывода инф. на консоль
+ * ApplePredicate 7) добавил гибкий метод prettyPrintApple для вывода инф. на консоль 8) параметризация поведения
+ * методов через анонимный класс
  * @author Sergei Begletsov
  * @since 26.08.2021
- * @version 7
+ * @version 8
  */
 
 public class FarmerApple {
@@ -141,8 +142,25 @@ public class FarmerApple {
                 new Apple(Apple.COLOR.RED, 4),
                 new Apple(Apple.COLOR.GREEN, 5)
         );
+        //1. Использование реализации интерефейсов при выводе на консоль
         new FarmerApple(list).prettyPrintApple(new AppleSimpleFormatter());
         System.out.println();
         new FarmerApple(list).prettyPrintApple(new AppleFancyFormatter());
+        System.out.println();
+
+        //2. Использование анонимного класса
+        List<Apple> redApples = new FarmerApple(list).filterGreenApples(new Predicate<Apple>() {
+            @Override
+            public boolean test(Apple apple) {
+                return apple.getColor().equals(Apple.COLOR.RED);
+            }
+        });
+        new FarmerApple(redApples).prettyPrintApple(new AppleFormatter() {
+            @Override
+            public String accept(Apple apple) {
+                return "Apple №" + apple.getId() + ", color = " + apple.getColor();
+            }
+        });
+        System.out.println();
     }
 }
