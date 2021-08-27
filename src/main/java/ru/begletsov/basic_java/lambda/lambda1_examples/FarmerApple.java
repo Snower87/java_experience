@@ -1,16 +1,18 @@
 package ru.begletsov.basic_java.lambda.lambda1_examples;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
 /** FarmerApple - класс-сервис для хозяйства фермера 1) создание класса, добавление метода filterGreenApples() -
  * - с обходом всех элементов через цикл for 2) добавил методы getGreenApples(), getRedApples() + тесты к ним
  * 3) добавил метод filterGreenApples с поиском по нужному цвету 4) добавил метод filterGreenApples с множеством
- * непонятных пар-ов (пример bad параметризации) 5) добавил фильтрацию через Predicate
+ * непонятных пар-ов (пример bad параметризации) 5) добавил фильтрацию через Predicate 6) добавил фильтрацию черех
+ * ApplePredicate 7) добавил гибкий метод prettyPrintApple для вывода инф. на консоль
  * @author Sergei Begletsov
  * @since 26.08.2021
- * @version 5
+ * @version 7
  */
 
 public class FarmerApple {
@@ -119,5 +121,28 @@ public class FarmerApple {
             }
         }
         return rsl;
+    }
+
+    /**
+     * Форматированный вывод на консоль данных
+     * @param formatter определяет стиль форматирования
+     */
+    public void prettyPrintApple(AppleFormatter formatter) {
+        for (Apple apple: apples) {
+            System.out.println(formatter.accept(apple));
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        new FarmerApple(list).prettyPrintApple(new AppleSimpleFormatter());
+        System.out.println();
+        new FarmerApple(list).prettyPrintApple(new AppleFancyFormatter());
     }
 }
