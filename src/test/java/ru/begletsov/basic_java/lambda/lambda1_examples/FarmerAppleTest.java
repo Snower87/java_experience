@@ -118,4 +118,37 @@ public class FarmerAppleTest {
         int sizeRedApplesExpected = 3;
         assertThat(new FarmerApple(list).getRedApples(), is(sizeRedApplesExpected));
     }
+
+    @Test
+    public void testInterfaceAppleGreenColorPredicate() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(new AppleGreenColorPredicate(), "from AppleGreenColorPredicate"), is(expected));
+    }
+
+    @Test
+    public void testInterfaceAppleIdMore3Predicate() {
+        List<Apple> list = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 1),
+                new Apple(Apple.COLOR.GREEN, 2),
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        List<Apple> expected = Arrays.asList(
+                new Apple(Apple.COLOR.RED, 3),
+                new Apple(Apple.COLOR.RED, 4),
+                new Apple(Apple.COLOR.GREEN, 5)
+        );
+        assertThat(new FarmerApple(list).filterGreenApples(new AppleIdMore3Predicate(), "from AppleIdMore3Predicate"), is(expected));
+    }
 }

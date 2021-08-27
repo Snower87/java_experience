@@ -105,4 +105,19 @@ public class FarmerApple {
         }
         return rsl;
     }
+
+    /**
+     * Фильтрация списка яблок через Predicate (тест)
+     * @param predicate заданные условия
+     * @return список яблок по необходимым условиям
+     */
+    public List<Apple> filterGreenApples(ApplePredicate predicate, String str) {
+        List<Apple> rsl = new ArrayList<>();
+        for (Apple apple: apples) {
+            if (predicate.test(apple)) {
+                rsl.add(apple);
+            }
+        }
+        return rsl;
+    }
 }
