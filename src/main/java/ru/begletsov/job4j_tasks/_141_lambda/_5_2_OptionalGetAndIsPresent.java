@@ -22,7 +22,7 @@ import java.util.Optional;
  * случае сам индекс.
  * @author Sergei Begletsov
  * @since 28.08.2021
- * @version 2
+ * @version 3
  */
 
 public class _5_2_OptionalGetAndIsPresent {
@@ -34,10 +34,11 @@ public class _5_2_OptionalGetAndIsPresent {
      *         в противном случае сам индекс.
      */
     public static int get(int[] data, int el) {
-        if (indexOf(data, el).isEmpty()) {
+        Optional<Integer> optional = indexOf(data, el);
+        if (optional.isEmpty()) {
             return - 1;
         }
-        return indexOf(data, el).get();
+        return optional.get();
     }
 
     /**
@@ -48,14 +49,12 @@ public class _5_2_OptionalGetAndIsPresent {
      *         если найден, то Optional из этого индекса.
      */
     private static Optional<Integer> indexOf(int[] data, int el) {
-        //1. Ищем значение 'el' в массиве data[]
+        Optional<Integer> optional = Optional.empty();
         for (int i = 0; i < data.length; i++) {
             if (data[i] == el) {
-                //2.1 Нашли значение 'el'
-                return Optional.of(i);
+                optional = Optional.of(i);
             }
         }
-        //2. Значение 'el' не найдено
-        return Optional.empty();
+        return optional;
     }
 }
