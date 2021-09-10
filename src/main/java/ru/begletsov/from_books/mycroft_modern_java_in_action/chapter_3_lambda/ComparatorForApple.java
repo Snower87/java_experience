@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Класс-сервис для работы с яблоками
- * 1) создание класса
+ * 1) создание класса 2) метод find переписал на стримах
  * @author Sergei Begletsov
  * @since 10.09.2021
  * @version 1
@@ -21,18 +22,14 @@ public class ComparatorForApple {
     }
 
     /**
-     * Фильтрация списка яблок через Predicate (тест)
+     * Поиск/фильтрация списка яблок через Predicate (тест)
      * @param predicate входной фильтр
      * @return список яблок, удовлетворяющих заданным условиям
      */
     public List<Apple> find(Predicate<Apple> predicate) {
-        List<Apple> list = new ArrayList<>();
-        for (Apple apple: apples) {
-            if (predicate.test(apple)) {
-                list.add(apple);
-            }
-        }
-        return list;
+        return apples.stream()
+                .filter(predicate)
+                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
