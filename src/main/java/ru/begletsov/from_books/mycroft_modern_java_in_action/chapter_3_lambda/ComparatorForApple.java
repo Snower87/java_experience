@@ -2,16 +2,17 @@ package ru.begletsov.from_books.mycroft_modern_java_in_action.chapter_3_lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
  * Класс-сервис для работы с яблоками
- * 1) создание класса 2) метод find переписал на стримах
+ * 1) создание класса 2) метод find переписал на стримах 3) добавил метод с сортировкой sort по компаратору
  * @author Sergei Begletsov
  * @since 10.09.2021
- * @version 1
+ * @version 3
  */
 
 public class ComparatorForApple {
@@ -19,6 +20,10 @@ public class ComparatorForApple {
 
     public ComparatorForApple(List<Apple> apples) {
         this.apples = apples;
+    }
+
+    public List<Apple> getApples() {
+        return apples;
     }
 
     /**
@@ -30,6 +35,14 @@ public class ComparatorForApple {
         return apples.stream()
                 .filter(predicate)
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Сортировка списка яблок
+     * @param comparator входной условие для сортировки
+     */
+    public void sort(Comparator<Apple> comparator) {
+        apples.sort(comparator);
     }
 
     public static void main(String[] args) {
