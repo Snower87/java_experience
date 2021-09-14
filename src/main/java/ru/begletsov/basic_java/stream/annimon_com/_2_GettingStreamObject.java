@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
  * 2. Получение объекта Stream
  * ссылка на статью: https://annimon.com/article/2778
  * @author Sergei Begletsov
- * @since 13.09.2021
+ * @since 14.09.2021
  * @version 1
  */
 
