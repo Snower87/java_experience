@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * IntStream будет содержать коды символы. Чтобы получить символ мы можем сделать так:
  * Character c = (char) 91;
  * @author Sergei Begletsov
- * @since 13.09.2021
+ * @since 14.09.2021
  * @version 1
  */
 
