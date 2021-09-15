@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * - List.of(1, 2, 3, 4, 5).stream().limit(2) // будет стрим из элементов 1, 2
  * Ваша задача взять первые 3 элемента из списка
  * @author Sergei Begletsov
- * @since 14.09.2021
+ * @since 15.09.2021
  * @version 1
  */
 

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * - List.of(1, 2, 3, 4, 5).stream().skip(2) // будет стрим из элементов 3, 4, 5
  * Ваша задача взять и получить элементы списка, за исключением первых двух
  * @author Sergei Begletsov
- * @since 14.09.2021
+ * @since 15.09.2021
  * @version 1
  */
 

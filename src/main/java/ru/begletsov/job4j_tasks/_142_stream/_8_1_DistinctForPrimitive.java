@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
  * - Arrays.stream(new int[] {1, 2, 1}).distinct() // в стриме останутся только 1, 2
  * Ваша задача собрать уникальные числа массива в список
  * @author Sergei Begletsov
- * @since 14.09.2021
+ * @since 15.09.2021
  * @version 1
  */
 
