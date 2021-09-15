@@ -1,5 +1,7 @@
 package ru.begletsov.basic_java.stream.annimon_com;
 
+import java.util.Comparator;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -8,7 +10,7 @@ import java.util.stream.Stream;
  * ссылка на статью: https://annimon.com/article/2778
  * @author Sergei Begletsov
  * @since 15.09.2021
- * @version 1
+ * @version 2
  */
 
 public class _6_2_IntermediateOperators {
@@ -89,5 +91,179 @@ public class _6_2_IntermediateOperators {
                     }
                 })
                 .forEach(System.out::println); // 1, 3, 9, 18, 4, 6, 36, 72
+        System.out.println();
+
+        //4. Пример mapMulti(BiConsumer<T, Consumer<R>> mapper)
+        //Появился в Java 16. Этот оператор похож на flatMap, но использует императивный подход при работе.
+        //Теперь вместе с элементом стрима приходит ещё и Consumer, в который можно передать одно или несколько значений,
+        // либо не передавать вовсе.
+        System.out.println("4. mapMulti(BiConsumer<T, Consumer<R>> mapper):");
+        //Вот как было с flatMap:
+        Stream.of(1, 2, 3, 4, 5, 6)
+                .flatMap(x -> {
+                    if (x % 2 == 0) {
+                        return Stream.of(-x, x);
+                    }
+                    return Stream.empty();
+                })
+                .forEach(System.out::println); // -2, 2, -4, 4, -6, 6
+        System.out.println();
+        //А вот так можно переписать с использованием mapMulti:
+        /*
+        Stream.of(1, 2, 3, 4, 5, 6)
+                .mapMulti((x, consumer) -> {
+                    if (x % 2 == 0) {
+                        consumer.accept(-x);
+                        consumer.accept(x);
+                    }
+                })
+                .forEach(System.out::println); // -2, 2, -4, 4, -6, 6
+        */
+        //Служат для преобразования в примитивный стрим:
+        //- mapMultiToDouble(BiConsumer<T, DoubleConsumer> mapper)
+        //- mapMultiToInt(BiConsumer<T, IntConsumer> mapper)
+        //- mapMultiToLong(BiConsumer<T, LongConsumer> mapper)
+
+        //5. Пример limit(long maxSize)
+        //Ограничивает стрим maxSize элементами.
+        System.out.println("5. limit(long maxSize):");
+        Stream.of(120, 410, 85, 32, 314, 12)
+                .limit(4)
+                .forEach(System.out::println); // 120, 410, 85, 32
+        System.out.println();
+
+        Stream.of(120, 410, 85, 32, 314, 12)
+                .limit(2)
+                .limit(5)
+                .forEach(System.out::println); // 120, 410
+        System.out.println();
+
+        Stream.of(19)
+                .limit(0)
+                .forEach(System.out::println); // Вывода нет
+        System.out.println();
+
+        //6. Пример skip(long n)
+        //Пропускает n элементов стрима.
+        System.out.println("6. skip(long n):");
+        Stream.of(5, 10)
+                .skip(40)
+                .forEach(System.out::println); // Вывода нет
+        System.out.println();
+
+        Stream.of(120, 410, 85, 32, 314, 12)
+                .skip(2)
+                .forEach(System.out::println); // 85, 32, 314, 12
+        System.out.println();
+
+        IntStream.range(0, 10)
+                .limit(5)
+                .skip(3)
+                .forEach(System.out::println); // 3, 4
+        System.out.println();
+
+        IntStream.range(0, 10)
+                .skip(5)
+                .limit(3)
+                .skip(1)
+                .forEach(System.out::println); // 6, 7
+        System.out.println();
+
+        //7. Пример sorted(), sorted(Comparator comparator)
+        //Сортирует элементы стрима. Причём работает этот оператор очень хитро: если стрим уже помечен как отсортированный,
+        // то сортировка проводиться не будет, иначе соберёт все элементы, отсортирует их и вернёт новый стрим, помеченный как отсортированный. См. 9.1
+        System.out.println("7. sorted(), sorted(Comparator comparator):");
+        IntStream.range(0, 100000000)
+                .sorted()
+                .limit(3)
+                .forEach(System.out::println); // 0, 1, 2
+        System.out.println();
+
+        IntStream.concat(
+                IntStream.range(0, 100000000),
+                    IntStream.of(-1, -2))
+                .sorted()
+                .limit(3)
+                .forEach(System.out::println); // Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+        System.out.println();
+
+        Stream.of(120, 410, 85, 32, 314, 12)
+                .sorted()
+                .forEach(System.out::println); // 12, 32, 85, 120, 314, 410
+        System.out.println();
+
+        Stream.of(120, 410, 85, 32, 314, 12)
+                .sorted(Comparator.reverseOrder())
+                .forEach(System.out::println); // 410, 314, 120, 85, 32, 12
+        System.out.println();
+
+        //8. Пример distinct()
+        System.out.println("8. distinct():");
+        //Убирает повторяющиеся элементы и возвращаем стрим с уникальными элементами. Как и в случае с sorted, смотрит,
+        // состоит ли уже стрим из уникальных элементов и если это не так, отбирает уникальные и помечает стрим как содержащий уникальные элементы.
+        Stream.of(2, 1, 8, 1, 3, 2)
+                .distinct()
+                .forEach(System.out::println); // 2, 1, 8, 3
+        System.out.println();
+
+        IntStream.concat(
+                IntStream.range(2, 5),
+                IntStream.range(0, 4))
+                .distinct()
+                .forEach(System.out::println);
+        System.out.println();
+
+        //9. Пример peek(Consumer action)
+        //Выполняет действие над каждым элементом стрима и при этом возвращает стрим с элементами исходного стрима.
+        // Служит для того, чтобы передать элемент куда-нибудь, не разрывая при этом цепочку операторов (вы же помните,
+        // что forEach — терминальный оператор и после него стрим завершается?), либо для отладки.
+        System.out.println("9. peek(Consumer action):");
+        Stream.of(0, 3, 0, 0, 5)
+                .peek(x -> System.out.format("before distinct: %d%n", x))
+                .distinct()
+                .peek(x -> System.out.format("after distinct: %d%n", x))
+                .map(x -> x * x)
+                .forEach(x -> System.out.format("after map: %d%n", x));
+        System.out.println();
+
+        //10. Пример takeWhile(Predicate predicate)
+        //Появился в Java 9. Возвращает элементы до тех пор, пока они удовлетворяют условию, то есть функция-предикат
+        // возвращает true. Это как limit, только не с числом, а с условием.
+        System.out.println("10. takeWhile(Predicate predicate):");
+        Stream.of(1, 2, 3, 4, 2, 5)
+                .takeWhile(x -> x < 3)
+                .forEach(System.out::println);
+        System.out.println();
+
+        IntStream.range(2, 7)
+                .takeWhile(x -> x != 5
+                )
+                .forEach(System.out::println); // 2, 3, 4
+        System.out.println();
+
+        //11. Пример dropWhile(Predicate predicate)
+        System.out.println("11. dropWhile(Predicate predicate):");
+        //Появился в Java 9. Пропускает элементы до тех пор, пока они удовлетворяют условию, затем возвращает оставшуюся
+        // часть стрима. Если предикат вернул для первого элемента false, то ни единого элемента не будет пропущено.
+        // Оператор подобен skip, только работает по условию.
+        Stream.of(1, 2, 3, 4, 2, 5)
+                .dropWhile(x -> x >= 3)
+                .forEach(System.out::println); // 1, 2, 3, 4, 2, 5
+        System.out.println();
+
+        Stream.of(1, 2, 3, 4, 2, 5)
+                .dropWhile(x -> x < 3)
+                .forEach(System.out::println); // 3, 4, 2, 5
+        System.out.println();
+
+        //12. Пример boxed()
+        System.out.println("12. boxed():");
+        DoubleStream.of(0.1, Math.PI)
+                .boxed()
+                .map(Object::getClass)
+                .forEach(System.out::println);
+        //class java.lang.Double
+        //class java.lang.Double
+        System.out.println();
     }
 }
