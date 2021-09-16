@@ -142,4 +142,36 @@ public class CollegeTest {
         //3. Результат сравнения
         assertEquals(exp, averScore, 0.01);
     }
+
+    @Test
+    public void averageScoreForAllSubject() {
+        //1. Входные данные
+        College college = new College(students);
+        Map<String, Double> averScoreForAllSubj = college.averageScoreForAllSubject();
+
+        Map<String, Double> exp = Map.of(
+                "Math", 58.33D,
+                "English", 63.33D,
+                "Informatics", 53.88D,
+                "Biology", 55.0D,
+                "History", 60.55D
+        );
+
+        assertEquals(exp.get("Math"), averScoreForAllSubj.get("Math"), 0.01);
+        assertEquals(exp.get("English"), averScoreForAllSubj.get("English"), 0.01);
+        assertEquals(exp.get("Informatics"), averScoreForAllSubj.get("Informatics"), 0.01);
+        assertEquals(exp.get("Biology"), averScoreForAllSubj.get("Biology"), 0.01);
+        assertEquals(exp.get("History"), averScoreForAllSubj.get("History"), 0.01);
+    }
+
+    @Test
+    public void averageScoreForCurrentSubject() {
+        //1. Входные данные
+        College college = new College(students);
+        Double averScoreForAllSubj = college.averageScoreForCurrentSubject("Biology");
+
+        Double expScoreBiology = 55.0D;
+
+        assertEquals(expScoreBiology, averScoreForAllSubj, 0.01);
+    }
 }

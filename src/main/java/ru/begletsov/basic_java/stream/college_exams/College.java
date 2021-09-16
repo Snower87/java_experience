@@ -7,10 +7,11 @@ import java.util.stream.Collectors;
 
 /**
  * Класс-сервис College
- * 1) создание класса (#124)
+ * 1) создание класса 2) добавил методы: averageScoreForSubject() - среднее значение баллов по конкретному предмету,
+ * averageScoreForAllSubject() - средний балл для каждого экзамена по отдельности
  * @author Sergei Begletsov
  * @since 16.09.2021
- * @version 1
+ * @version 2
  */
 
 public class College {
@@ -70,33 +71,27 @@ public class College {
                 //.collect(Collectors.averagingDouble(Subject::getScore));
     }
 
-    public static void main(String[] args) {
-        Map<Student, Set<Subject>> students = Map.of(new Student("Student", "000001", "2021-09-15"),
-                Set.of(
-                        new Subject("Math", 70),
-                        new Subject("English", 85)
-                ), new Student("Nadia", "000002", "2021-09-15"),
-                Set.of(
-                        new Subject("Math", 35),
-                        new Subject("English", 72)
-                ), new Student("Petr", "000003", "2021-09-16"),
-                Set.of(
-                        new Subject("Math", 90),
-                        new Subject("English", 48)
-                ), new Student("Lena", "000004", "2021-09-16"),
-                Set.of(
-                        new Subject("Math", 42),
-                        new Subject("English", 67)
-                ), new Student("Nina", "000005", "2021-09-17"),
-                Set.of(
-                        new Subject("Math", 98),
-                        new Subject("English", 98)
-                )
-        );
-        College college = new College(students);
-        Student student = college.findByAccount("000001");
-        System.out.println("Найденный студент: " + student);
-        Subject english = college.findBySubjectName("000001", "English");
-        System.out.println("Оценка по найденному предмету: " + english.getScore());
+    /**
+     * Средний балл по всем предметам
+     * @return мапу со средним значением баллов по всем экзаменам
+     */
+    public Map<String, Double> averageScoreForAllSubject() {
+        return students.values().stream()
+                .flatMap(set -> set.stream())
+                .collect(Collectors.groupingBy(
+                        subject -> subject.getName(),
+                        Collectors.averagingDouble(Subject::getScore)
+                ));
+    }
+
+    /**
+     * Средний балл по конкретному предмету
+     * @return среднее значение по всем сданным абитуриентам
+     */
+    public Double averageScoreForCurrentSubject(String nameSubject) {
+        return students.values().stream()
+                .flatMap(set -> set.stream())
+                .filter(subj -> subj.getName().equals(nameSubject))
+                .collect(Collectors.averagingDouble(Subject::getScore));
     }
 }

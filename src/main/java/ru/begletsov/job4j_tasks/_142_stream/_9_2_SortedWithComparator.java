@@ -30,6 +30,8 @@ public class _9_2_SortedWithComparator {
                 //.sorted((s1, s2) -> s2.compareTo(s1))
                 //Вариант 4
                 //.sorted(Comparator.comparing(String::toString))
+                //Вариант 5
+                //.sorted(Comparator.comparing((String x) -> x))
                 .collect(Collectors.toList());
     }
 }
