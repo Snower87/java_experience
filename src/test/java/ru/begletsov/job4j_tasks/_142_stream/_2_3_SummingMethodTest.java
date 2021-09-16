@@ -25,6 +25,6 @@ public class _2_3_SummingMethodTest {
                 "u2", 5,
                 "u3", 15
         );
-        //assertEquals(expect, _2_3_SummingMethod.summing(List.of(u1, u2, u3)));
+        assertEquals(expect, _2_3_SummingMethod.summing(List.of(u1, u2, u3)));
     }
 }

@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  * Подсказка: нужно использовать вспомогательный класс для группировки Pair
  * @author Sergei Begletsov
  * @since 08.09.2021
- * @version 1
+ * @version 2
  */
 
 public class _2_3_SummingMethod {
@@ -81,6 +81,11 @@ public class _2_3_SummingMethod {
     }
 
     public static Map<String, Integer> summing(List<User> users) {
-        return Map.of("1", 1);
+        return users.stream()
+                //Вариант 1
+                .collect(Collectors.groupingBy(
+                        user -> user.getName(),
+                        Collectors.summingInt(user -> user.getBills().stream().mapToInt(bill -> bill.getBalance()).sum())
+                ));
     }
 }
