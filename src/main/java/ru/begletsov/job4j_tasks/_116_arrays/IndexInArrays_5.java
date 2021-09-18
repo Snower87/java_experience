@@ -1,5 +1,7 @@
 package ru.begletsov.job4j_tasks._116_arrays;
 
+import java.util.Arrays;
+
 /**
  * @Задание 5. Индексы в массивах
  * @Описание Доступ к элементам в массивах осуществляется при помощи индексов, которые являются целочисленными значениями.
@@ -8,7 +10,7 @@ package ru.begletsov.job4j_tasks._116_arrays;
  * а второй метод - последний элемент массива.
  * @author Sergei Begletsov
  * @since 15.04.2021
- * @version 1
+ * @version 2
  */
 
 public class IndexInArrays_5 {
@@ -18,8 +20,12 @@ public class IndexInArrays_5 {
      * @return возвращает 1ый элемент массива
      */
     public static int getFirstElement(int[] array) {
-        int rsl = array[0];
-        return rsl;
+        //Вариант 1
+        //int rsl = array[0];
+        //return rsl;
+        //Вариант 2 (через stream)
+        return Arrays.stream(array)
+                .findFirst().getAsInt();
     }
     /*
      * Получает последний элемент массива
@@ -27,7 +33,12 @@ public class IndexInArrays_5 {
      * @return возвращает последний элемент массива
      */
     public static int getLastElement(int[] array) {
-        int rsl = array[array.length - 1];
-        return rsl;
+        //Вариант 1
+        //int rsl = array[array.length - 1];
+        //return rsl;
+        //Вариант 2 (через stream)
+        return Arrays.stream(array)
+                .reduce((e1, e2) -> e2)
+                .getAsInt();
     }
 }
