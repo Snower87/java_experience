@@ -40,8 +40,8 @@ public class _9_5_OptionalStream {
         );
         String result = strings.stream()
                 .filter(s -> s.startsWith("1."))
-                .findFirst().stream().
-                flatMapToInt(String::chars)
+                .findFirst().stream()
+                .flatMapToInt(String::chars)
                 .mapToObj(c -> String.valueOf(Character.toUpperCase((char)c)))
                 .collect(Collectors.joining());
         System.out.println(result);
