@@ -2,7 +2,7 @@ package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._3_gererics._2_para
 
 /**
  * = Папка 3. Generics =
- * ---> Урок 1. Введение в generics
+ * ---> Урок 2. Parameterized class
  * @author Sergei Begletsov
  * @since 01.10.2021
  * @version 1
