@@ -11,6 +11,8 @@ import java.util.function.Supplier;
  * @version 1
  */
 
+//Supplier<T> - поставщик, у  него есть метод: T get();
+
 public class _4_Supplier {
     public static ArrayList<Car> createThreeCars(Supplier<Car> carSupplier) {
         ArrayList<Car> arrayList = new ArrayList<>();
@@ -21,7 +23,6 @@ public class _4_Supplier {
     }
 
     public static void main(String[] args) {
-        //Supplier<T> - поставщик, у  него есть метод: T get();
 
         ArrayList<Car> ourCars = createThreeCars( () ->
                 new Car("Nissan Tida", "silver", 1.6));

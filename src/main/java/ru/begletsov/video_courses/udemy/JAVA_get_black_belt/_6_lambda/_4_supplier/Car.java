@@ -11,6 +11,30 @@ public class Car {
         this.engine = engine;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getEngine() {
+        return engine;
+    }
+
+    public void setEngine(double engine) {
+        this.engine = engine;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
