@@ -1,6 +1,6 @@
 package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._6_lambda._3_predicate;
 
-import ru.begletsov.video_courses.udemy.JAVA_get_black_belt._6_lambda.Student;
+import ru.begletsov.video_courses.udemy.JAVA_get_black_belt._6_lambda._1_2_intro.Student;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
