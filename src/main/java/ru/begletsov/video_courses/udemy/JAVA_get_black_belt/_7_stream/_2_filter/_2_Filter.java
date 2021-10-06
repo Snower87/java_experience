@@ -5,6 +5,7 @@ import ru.begletsov.video_courses.udemy.JAVA_get_black_belt._6_lambda._1_2_intro
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * = Папка 7. Streams =
@@ -33,5 +34,9 @@ public class _2_Filter {
                 .filter(el -> el.getAge() > 22 && el.getAvgGrade() < 7.2)
                 .collect(Collectors.toList());
         System.out.println(students);
+
+        Stream<Student> studentStream = Stream.of(st1, st2, st3, st4, st5);
+        studentStream.filter(st -> st.getAge() > 20)
+                    .collect(Collectors.toSet());
     }
 }
