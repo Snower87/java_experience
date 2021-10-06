@@ -18,8 +18,5 @@ public class _3_ForEach {
         //Arrays.stream(array).forEach(System.out::println);
 
         Arrays.stream(array).forEach(ExampleForEach::printMethod);
-
-
-
     }
 }
