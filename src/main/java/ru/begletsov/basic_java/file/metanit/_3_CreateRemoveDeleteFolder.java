@@ -9,7 +9,7 @@ import java.io.File;
  * @version 1
  */
 
-public class _3_CreateRemoveDeleteFile {
+public class _3_CreateRemoveDeleteFolder {
     public static void main(String[] args) {
         //определяем объект для каталога
         File dir = new File("F://SomeDir");
