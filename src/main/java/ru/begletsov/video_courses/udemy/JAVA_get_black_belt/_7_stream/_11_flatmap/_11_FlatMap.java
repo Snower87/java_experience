@@ -9,7 +9,7 @@ import java.util.List;
  * = Папка 7. Streams =
  * ---> Урок 11. Метод flatMap
  * @author Sergei Begletsov
- * @since 06.10.2021
+ * @since 07.10.2021
  * @version 1
  */
 

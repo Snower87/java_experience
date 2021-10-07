@@ -6,7 +6,7 @@ import java.util.stream.Stream;
  * = Папка 7. Streams =
  * ---> Урок 10. Метод peak
  * @author Sergei Begletsov
- * @since 06.10.2021
+ * @since 07.10.2021
  * @version 1
  */
 
