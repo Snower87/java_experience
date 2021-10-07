@@ -8,8 +8,8 @@ import java.util.stream.Stream;
  * = Папка 7. Streams =
  * ---> Урок 16. Метод skip
  * @author Sergei Begletsov
- * @version 1
  * @since 07.10.2021
+ * @version 1
  */
 
 //skip(i) - пропускает первые n-элементов
