@@ -10,6 +10,8 @@ import java.util.stream.Stream;
  * @version 1
  */
 
+//count(t) - возвращает количество элементов стрима
+
 public class _9_Count {
     public static void main(String[] args) {
         Stream<Integer> stream1 = Stream.of(1, 2, 3, 4, 5);
