@@ -1,4 +1,4 @@
-package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._9_file._7_serialize;
+package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._9_file._7_8_serialize;
 
 import java.io.Serializable;
 

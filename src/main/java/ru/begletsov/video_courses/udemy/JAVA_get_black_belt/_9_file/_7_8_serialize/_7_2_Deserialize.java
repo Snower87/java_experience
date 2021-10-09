@@ -1,4 +1,4 @@
-package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._9_file._7_serialize;
+package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._9_file._7_8_serialize;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class _7_2_Deserialize {
         List<String> deserialize = new ArrayList<>();
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("F:\\serialize_list_employees.bin"))) {
             deserialize = (ArrayList) objectInputStream.readObject();
-            System.out.println("deserialize list: " + deserialize);
+            System.out.println("7.2 deserialize list: " + deserialize);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
