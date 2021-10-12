@@ -8,7 +8,7 @@ package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._3_thread
  * @since 12.10.2021
  */
 
-public class _3_ThreadExample {
+public class _3_ThreadNamePriorityExample {
     public static void main(String[] args) {
         _3_MyThreadPriority thread0 = new _3_MyThreadPriority();
         System.out.println("thread name(): " + thread0.getName());          //Thread-0
