@@ -5,7 +5,7 @@ package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._5_concur
  * ---> Урок 5. Понятия concurrency и parallelism. Понятия synchronous и asynchronous
  * @author Sergei Begletsov
  * @version 1
- * @since 12.10.2021
+ * @since 13.10.2021
  */
 
 //1. Concurrency - переводится как совпадение или согласованность.
