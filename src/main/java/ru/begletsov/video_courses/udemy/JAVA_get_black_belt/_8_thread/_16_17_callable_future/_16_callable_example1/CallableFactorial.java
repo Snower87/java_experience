@@ -1,4 +1,4 @@
-package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._16_callable_future;
+package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._16_17_callable_future._16_callable_example1;
 
 import java.util.concurrent.Callable;
 
@@ -12,11 +12,12 @@ public class CallableFactorial implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         if (f <= 0) {
-            throw new Exception("Callcable exeption - illegal ");
+            throw new Exception("Callcable exeption - illegal. Nevernoe choslo - vvedite zanavo. ");
         }
         int rsl = 1;
         for (int i = 1; i <= f; i++) {
             rsl *= i;
+            Thread.sleep(1000);
         }
         return rsl;
     }

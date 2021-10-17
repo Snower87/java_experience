@@ -1,4 +1,4 @@
-package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._16_callable_future;
+package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._8_thread._16_17_callable_future._16_callable_example1;
 
 public class RunnableFactorial implements Runnable {
     int f;
