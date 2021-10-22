@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * ---> Урок 3. RegEx. Часть 3
  * @author Sergei Begletsov
  * @version 1
- * @since 21.10.2021
+ * @since 22.10.2021
  */
 
 public class _3_RegEx {
