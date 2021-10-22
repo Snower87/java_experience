@@ -13,7 +13,9 @@ import java.util.regex.Pattern;
 
 //1. Регулярные выражения необходимы для создания шаблонов, с помощью которых производятся такие операции: поиск, сравнение, замена.
 //2. Регулярные выражения - совокупность символов, некоторые из которых являются специальными метасимволами (обладают каким-то функционалом)
-
+//3. Создание RegEx:
+// Pattern myPattern = Pattern.compile(«REGEX");
+// Matcher myMatcher = myPattern .matcher(myString);
 
 public class _1_RegEx {
     public static void main(String[] args) {
@@ -63,12 +65,14 @@ public class _1_RegEx {
 
         while (matcher4.find()) {
             System.out.println("Position: " + matcher4.start() + "    " + matcher4.group());
+            //Position: 0    ABDOF
+            //Position: 25    ABEOF
         }
         System.out.println();
 
         //Пример 5. Поиск подстроки abc и одного из символов e-g и 4-7 [e-g4-7]
         System.out.println("Пример 5. Поиск подстроки abc и одного из символов e-g и 4-7 [e-g4-7]");
-        String str5 = "abcd abcde abc5abcg6abch";
+        String str5 = "abcd abcde abc5abce4abch";
         Pattern pattern5 = Pattern.compile("abc[e-g4-7]]");
         Matcher matcher5 = pattern5.matcher(str5);
 
