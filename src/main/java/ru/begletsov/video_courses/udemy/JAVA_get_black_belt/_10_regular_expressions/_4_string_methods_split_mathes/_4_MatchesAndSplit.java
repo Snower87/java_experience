@@ -10,6 +10,10 @@ import java.util.Arrays;
  * @since 22.10.2021
  */
 
+//1. Методы:
+//- public boolean matches (String regex),
+//- public String [] split (String regex)
+
 public class _4_MatchesAndSplit {
     public static void main(String[] args) {
         String s =
