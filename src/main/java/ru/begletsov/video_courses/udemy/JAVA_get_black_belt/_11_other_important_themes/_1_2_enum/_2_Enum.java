@@ -10,8 +10,6 @@ import java.util.Arrays;
  * @since 24.10.2021
  */
 
-
-
 public class _2_Enum {
     public static void main(String[] args) {
         DayOfWeek2 day1 = DayOfWeek2.FRIDAY;
