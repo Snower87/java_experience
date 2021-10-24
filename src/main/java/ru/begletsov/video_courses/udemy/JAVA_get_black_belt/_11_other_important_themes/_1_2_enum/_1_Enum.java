@@ -1,4 +1,4 @@
-package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._11_other_important_themes._1_3_enum;
+package ru.begletsov.video_courses.udemy.JAVA_get_black_belt._11_other_important_themes._1_2_enum;
 
 /**
  * = Папка 11. Другие важные темы =
