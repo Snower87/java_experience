@@ -15,6 +15,7 @@ import java.util.Scanner;
 // - nextByte(), nextInt(), nextShort(), nextLong(), nextFloat(), nextDouble(), nextBoolean()
 // - hasNext(), hasNextLine(), hasNextInt()
 // - next(), nextLine()
+//3. Закрытие сканнера: scanner.close()
 
 public class _3_Scanner {
     public static void main(String[] args) {
@@ -38,6 +39,7 @@ public class _3_Scanner {
 //        System.out.println("Напишите дробное");
 //        double str = scanner.nextDouble();
 //        System.out.println("Вы написали: " + str);
+        scanner.close();
 
         Scanner scanner2 = new Scanner("Привет мой друг!\nКак твои дела?\nЧто хорошего?");
         //String s = scanner2.next(); //Привет
@@ -51,5 +53,6 @@ public class _3_Scanner {
         while (scanner2.hasNextLine()) {
             System.out.println(scanner2.nextLine());
         }
+        scanner2.close();
     }
 }
