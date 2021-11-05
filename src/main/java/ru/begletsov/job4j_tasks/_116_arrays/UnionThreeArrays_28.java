@@ -12,7 +12,7 @@ package ru.begletsov.job4j_tasks._116_arrays;
  * 3. Элементы с четными индексами из третьего массива, должны находиться в результирующем массиве на местах с нечетными индексами.
  * @author Sergei Begletsov
  * @since 22.04.2021
- * @version 1
+ * @version 2
  */
 
 public class UnionThreeArrays_28 {
@@ -38,18 +38,15 @@ public class UnionThreeArrays_28 {
         //3.1 Элементами массива left
         rsl[0] = left[0];
         rsl[rslLength - 1] = left[left.length - 1];
-        //3.2 Элементами массива middle
-        for (int i = 0; i < rslLength - 1; i++) {
-            if (i > 0 && i % 2 == 0) {
+        //3.2 Элементами массива middle и right
+        for (int i = 1; i < rslLength - 1; i++) {
+            if ( i % 2 == 0) {
                 rsl[i] = middle[i - 1];
-            }
-        }
-        //3.3 Элементами массива right
-        for (int i = 0; i < rslLength; i++) {
-            if (i % 2 == 1) {
+            } else {
                 rsl[i] = right[i - 1];
             }
         }
+
         return rsl;
     }
 }
