@@ -14,7 +14,7 @@ package ru.begletsov.structure_of_data.linkedList.axis_net;
  * @version 1
  */
 
-public class List {
+class List {
     private ListElement head;       // указатель на первый элемент
     private ListElement tail;       // указатель последний элемент
 

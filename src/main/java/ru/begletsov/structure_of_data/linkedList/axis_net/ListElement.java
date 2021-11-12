@@ -9,7 +9,7 @@ package ru.begletsov.structure_of_data.linkedList.axis_net;
  * @version 1
  */
 
-public class ListElement {
+class ListElement {
     /**
      * Каждый элемент списка содержит в себе данные и указатель на следующий элемент.
      * Возьмем простой вариант данных в списке - просто целые числа.
