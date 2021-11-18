@@ -28,13 +28,13 @@ public class OrderArray {
                 return curIn;
             //2. Если перешли через верхнюю границу
             } else if (lowerBound > upperBound) {
-                return nElements;
+                return -1;
             } else {
             //3. Деление диапазона пополам
                 if (searchKey > a[curIn]) {
                     lowerBound = curIn + 1;
                 } else {
-                    lowerBound = curIn - 1;
+                    upperBound = curIn - 1;
                 }
             }
         }
@@ -42,11 +42,34 @@ public class OrderArray {
 
     // Вставка элемента в массив
     public void insert(long value) {
-
+        if (nElements == 0) {
+            a[nElements++] = value;
+            return;
+        }
+        int index;
+        for (index = 0; index < nElements; index++) {
+            if (a[index] > value) {
+                break;
+            }
+        }
+        for (int k = nElements; k > index; k--) {
+            a[k] = a[k-1];
+        }
+        a[index] = value;
+        nElements++;
     }
 
     public boolean delete(long value) {
-
+        int j = find(value);
+        if (j == - 1) {
+            return false;
+        } else {
+            for (int i = j; i < nElements; i++) {
+                a[i] = a[i + 1];
+            }
+            nElements--;
+        }
+        return true;
     }
 
     // Вывод содержимого массива

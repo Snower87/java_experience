@@ -5,16 +5,18 @@ public class OrderedApp {
         int maxSize = 100; // Размер массива
         OrderArray arr; // Ссылка на массив
         arr = new OrderArray(maxSize); // Создание массива
-        arr.insert(77); // Вставка 10 элементов
         arr.insert(99);
+        arr.insert(11);
+        arr.insert(88);
+        arr.insert(22);
+        arr.insert(00); // Вставка 10 элементов
+        arr.insert(33);
         arr.insert(44);
         arr.insert(55);
-        arr.insert(22);
-        arr.insert(88);
-        arr.insert(11);
-        arr.insert(00);
         arr.insert(66);
-        arr.insert(33);
+        arr.insert(77);
+
+
         int searchKey = 55; // Поиск элемента
         if( arr.find(searchKey) != arr.size() )
             System.out.println("Found " + searchKey);
