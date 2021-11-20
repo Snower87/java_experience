@@ -1,8 +1,8 @@
-package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_3._126_stack;
+package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_3;
 
 import java.util.Arrays;
 
-class StackX {
+public class StackX {
     private int maxSize;
     private long[] stackArray;
     private int top;

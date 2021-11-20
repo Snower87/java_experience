@@ -1,5 +1,7 @@
 package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_3._126_stack;
 
+import ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_3.StackX;
+
 public class StackApp {
     public static void main(String[] args) {
         StackX stack = new StackX(10);
