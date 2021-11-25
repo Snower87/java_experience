@@ -22,4 +22,13 @@ public class LinkListX {
         first = first.next;
         return temp;
     }
+
+    public void displayList() {
+        System.out.println("first --> last");
+        Link current = first;
+        while (current != null) {
+            current.displayLinkX();
+            current = current.next;
+        }
+    }
 }
