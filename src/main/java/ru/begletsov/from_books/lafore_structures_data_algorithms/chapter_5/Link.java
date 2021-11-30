@@ -1,4 +1,4 @@
-package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_5._185_linked_list;
+package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_5;
 
 public class Link {
     public int iData;
