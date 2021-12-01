@@ -16,18 +16,38 @@ public class FirstLastList {
     }
 
     public void insertFirst(int data) {
-
+        Link newLink = new Link(data);
+        if (isEmpty()) {
+            last = newLink;
+        }
+        newLink.next = first;
+        first = newLink;
     }
 
     public void insertLast(int data) {
-
+        Link newLink = new Link(data);
+        if (isEmpty()) {
+            first = newLink;
+        }
+        last.next = newLink;
+        last = newLink;
     }
 
-    public long deleteFirst() {
-        return 0;
+    public int deleteFirst() {
+        Link delete = first;
+        if (delete != null) {
+            System.out.print("Delete: ");
+            delete.displayLinkX();
+            first = delete.next;
+        }
+        return delete.iData;
     }
 
     public void displayList() {
-
+        Link current = first;
+        while (current != null) {
+            current.displayLinkX();
+            current = current.next;
+        }
     }
 }
