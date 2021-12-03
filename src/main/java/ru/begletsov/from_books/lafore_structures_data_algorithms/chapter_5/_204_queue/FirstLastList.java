@@ -16,14 +16,29 @@ public class FirstLastList {
     }
 
     public void insertLast(int data) {
-
+        Link newLink = new Link(data);
+        if (isEmpty()) {
+            first = newLink;
+        } else {
+            last.next = newLink;
+        }
+        last = newLink;
     }
 
     public int deleteFirst() {
-
+        int delete = first.iData;
+        if (first.next == null) {
+            last = null;
+        }
+        first = first.next;
+        return delete;
     }
 
     public void displayList() {
-
+        Link current = first;
+        while (current != null) {
+            current.displayLinkX();
+            current = current.next;
+        }
     }
 }

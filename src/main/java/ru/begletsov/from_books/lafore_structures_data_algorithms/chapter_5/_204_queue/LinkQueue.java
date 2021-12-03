@@ -13,15 +13,19 @@ public class LinkQueue {
 
     // Вставка элемента в конец очереди
     public void insert(int data) {
+        System.out.println("insert last -> " + data  + " to queue");
         theList.insertLast(data);
     }
 
     // Удаление элемента в начале очереди
     public int remove() {
-        return theList.deleteFirst();
+        int delete = theList.deleteFirst();
+        System.out.println("remove first -> " + delete  + " from queue");
+        return delete;
     }
 
     public void displayQueue() {
-
+        System.out.println("<< Queue >>");
+        theList.displayList();
     }
 }
