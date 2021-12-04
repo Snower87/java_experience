@@ -4,11 +4,17 @@ public class DoublyLinkedApp {
     public static void main(String[] args) {
         DoublyLinkedList theList = new DoublyLinkedList();
         theList.insertFirst(22); // Вставка в начале
+        theList.displayForward(); // Вывод в прямом направлении
         theList.insertFirst(44);
+        theList.displayForward(); // Вывод в прямом направлении
         theList.insertFirst(66);
+        theList.displayForward(); // Вывод в прямом направлении
         theList.insertLast(11); // Вставка в конце
+        theList.displayForward(); // Вывод в прямом направлении
         theList.insertLast(33);
+        theList.displayForward(); // Вывод в прямом направлении
         theList.insertLast(55);
+        theList.displayForward(); // Вывод в прямом направлении
         theList.displayForward(); // Вывод в прямом направлении
         theList.displayBackward(); // Вывод в обратном направлении
         theList.deleteFirst(); // Удаление первого элемента
