@@ -15,7 +15,6 @@ public class DoublyLinkedApp {
         theList.displayForward(); // Вывод в прямом направлении
         theList.insertLast(55);
         theList.displayForward(); // Вывод в прямом направлении
-        theList.displayForward(); // Вывод в прямом направлении
         theList.displayBackward(); // Вывод в обратном направлении
         theList.deleteFirst(); // Удаление первого элемента
         theList.deleteLast(); // Удаление последнего элемента
