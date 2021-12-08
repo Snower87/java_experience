@@ -3,7 +3,7 @@ package ru.begletsov.sorting_algorithm.javarush.slow;
 import java.util.Arrays;
 
 /**
- * Class SelectionSort сортировка данных выбором
+ * Class SelectionSort сортировка выбором
  * неэффективная, сложность алгоритма O(n^2)
  * @author Sergei Begletsov
  * @since 08.12.2021

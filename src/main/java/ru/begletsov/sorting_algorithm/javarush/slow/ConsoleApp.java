@@ -32,7 +32,8 @@ public class ConsoleApp {
                 SelectionSort selectionSort = new SelectionSort(array10);
             } break;
             case 3: {
-
+                System.out.println(Arrays.toString(array10));
+                InsertionSort insertionSort = new InsertionSort(array10);
             } break;
             default:
                 break;
