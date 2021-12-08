@@ -21,6 +21,7 @@ public class ConsoleApp {
         System.out.println("1. Сортировка пузырьком");
         System.out.println("2. Сортировка выбором");
         System.out.println("3. Сортировка вставками");
+        System.out.println("4. Челночная сортировка");
         int num = scanner.nextInt();
         switch (num) {
             case 1: {
@@ -34,6 +35,10 @@ public class ConsoleApp {
             case 3: {
                 System.out.println(Arrays.toString(array10));
                 InsertionSort insertionSort = new InsertionSort(array10);
+            } break;
+            case 4: {
+                System.out.println(Arrays.toString(array10));
+                ShuttleSort shuttleSort = new ShuttleSort(array10);
             } break;
             default:
                 break;
