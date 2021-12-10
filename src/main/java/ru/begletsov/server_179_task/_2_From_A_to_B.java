@@ -15,14 +15,14 @@ import java.util.Scanner;
 
 public class _2_From_A_to_B {
     public static void print(int A, int B) {
+        System.out.println(A + " ");
         if (A == B) {
             return;
         }
         if (A > B) {
-            System.out.println(A + " ");
             print(--A, B);
-        } else {
-            System.out.println(A + " ");
+        }
+        if (A < B) {
             print(++A, B);
         }
     }
