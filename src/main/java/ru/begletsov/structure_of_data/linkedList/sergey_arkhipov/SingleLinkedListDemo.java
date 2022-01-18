@@ -13,6 +13,11 @@ public class SingleLinkedListDemo {
         for (Object contact: contactList) {
             System.out.println(contact);
         }
+        System.out.println("-------------------------------");
+        contactList.reverse();
+        for (Object contact: contactList) {
+            System.out.println(contact);
+        }
     }
 
     static class Contact {

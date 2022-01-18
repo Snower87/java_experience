@@ -8,7 +8,7 @@ import java.util.Iterator;
  *           ссылка на видео: https://www.youtube.com/watch?v=Nzz4i1QWmJw
  * @author Sergei Begletsov
  * @since 17.01.2022
- * @version 1
+ * @version 2
  */
 
 public class SingleLinkedList<T> implements Iterable {
@@ -53,6 +53,20 @@ public class SingleLinkedList<T> implements Iterable {
         } else {
             tail.next = newItem;
             tail = newItem;
+        }
+    }
+
+    public void reverse() {
+        if (!isEmpty() && head.next != null) {
+            tail = head;
+            ListItem<T> current = head.next;
+            head.next = null;
+            while (current != null) {
+                ListItem<T> next = current.next;
+                current.next = head;
+                head = current;
+                current = next;
+            }
         }
     }
 }
