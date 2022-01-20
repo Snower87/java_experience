@@ -1,5 +1,7 @@
 package ru.begletsov.sorting_algorithm.javarush.slow;
 
+import ru.begletsov.sorting_algorithm.javarush.fast.MergeSort;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -18,10 +20,14 @@ public class ConsoleApp {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите способ сортировки:");
+        System.out.println("      << SLOW >>");
         System.out.println("1. Сортировка пузырьком");
         System.out.println("2. Сортировка выбором");
         System.out.println("3. Сортировка вставками");
         System.out.println("4. Челночная сортировка");
+        System.out.println("5. Сортировка Шелла");
+        System.out.println("      << FAST >>");
+        System.out.println("6. Сортировка слиянием");
         int num = scanner.nextInt();
         switch (num) {
             case 1: {
@@ -39,6 +45,10 @@ public class ConsoleApp {
             case 4: {
                 System.out.println(Arrays.toString(array10));
                 ShuttleSort shuttleSort = new ShuttleSort(array10);
+            } break;
+            case 6: {
+                System.out.println(Arrays.toString(array10));
+                MergeSort.mergeSort(array10, 0, 8);
             } break;
             default:
                 break;
