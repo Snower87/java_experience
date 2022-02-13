@@ -13,6 +13,6 @@ public class Link {
     }
 
     public void displayLink() {
-
+        System.out.print(" " + Data + " ");
     }
 }
