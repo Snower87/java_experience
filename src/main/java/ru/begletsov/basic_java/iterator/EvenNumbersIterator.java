@@ -33,7 +33,15 @@ public class EvenNumbersIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        return false;
+        boolean rsl = false;
+        while (index < data.length) {
+            if (data[index] % 2 == 0) {
+                rsl = true;
+                break;
+            }
+            index++;
+        }
+        return rsl;
     }
 
     @Override
