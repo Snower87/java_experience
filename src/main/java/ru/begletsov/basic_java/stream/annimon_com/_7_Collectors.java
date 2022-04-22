@@ -1,6 +1,7 @@
 package ru.begletsov.basic_java.stream.annimon_com;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -55,6 +56,7 @@ public class _7_Collectors {
                         Function.identity(),
                         Function.identity()
                 )); // {1=1, 2=2, 3=3, 4=4, 5=5}
+        map1.forEach((k, v) -> System.out.println(k + "=" + v));
 
         Map<Integer, String> map2 = Stream.of(1, 2, 3)
                 .collect(Collectors.toMap(
@@ -67,6 +69,8 @@ public class _7_Collectors {
                         i -> (char) i.intValue(),
                         i -> String.format("<%d>", i)
                 )); // {'2'="<50>", '6'="<54>", '7'="<55>"}
+        BiConsumer biConsumer3 = (k, v) -> System.out.println("'" + k + "'" + "=" + v);
+        map3.forEach(biConsumer3);
         System.out.println();
 
         //5. Пример toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction)
@@ -79,6 +83,7 @@ public class _7_Collectors {
                         (a, b) -> String.join(", ", a, b)
                 )); // {0="<50>, <55>, <20>", 2="<52>", 4="<64>, <19>"}
         //В данном случае, для чисел 50, 55 и 20, ключ одинаков и равен 0, поэтому значения накапливаются. Для 64 и 19 аналогично.
+        map4.forEach((k, v) -> System.out.println(k + "=" + v));
         System.out.println();
 
         //6. Пример toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction, Supplier mapFactory)
