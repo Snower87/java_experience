@@ -1,5 +1,7 @@
 package ru.begletsov.basic_java.metanit._10_stream_api._3_forEach_filter_map_flatMap;
 
+import ru.begletsov.basic_java.metanit._10_stream_api.Phone;
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 

@@ -1,4 +1,4 @@
-package ru.begletsov.basic_java.metanit._10_stream_api._3_forEach_filter_map_flatMap;
+package ru.begletsov.basic_java.metanit._10_stream_api;
 
 public class Phone {
     private String name;
