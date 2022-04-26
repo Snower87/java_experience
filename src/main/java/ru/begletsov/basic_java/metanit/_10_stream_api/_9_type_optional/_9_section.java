@@ -80,6 +80,9 @@ public class _9_section {
 
         //9.8 Метод ifPresentOrElse()
         //Метод ifPresentOrElse() позволяет определить альтернативную логику на случай, если значение в Optional отсутствует
+        //В метод ifPresentOrElse передается две функции:
+        //Первая обрабатывает значение в Optional, если оно присутствует.
+        //Вторая функция представляет действия, которые выполняются, если значение в Optional отсутствует.
         System.out.println("9.8 Метод ifPresentOrElse():");
         ArrayList<Integer> numbers8 = new ArrayList<Integer>();
         Optional<Integer> min8 = numbers8.stream().min(Integer::compare);
