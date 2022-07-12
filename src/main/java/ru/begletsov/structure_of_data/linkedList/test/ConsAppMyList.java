@@ -9,14 +9,15 @@ public class ConsAppMyList {
         myList.addFirst(2);
         myList.addFirst(3);
         myList.addFirst(5);
+        myList.printList();
+        System.out.println();
+        System.out.println();
 
         System.out.println("Add last");
         myList.addLast(22);
         myList.addLast(33);
         myList.addLast(55);
         myList.addLast(66);
-
-        System.out.println();
         myList.printList();
     }
 }
