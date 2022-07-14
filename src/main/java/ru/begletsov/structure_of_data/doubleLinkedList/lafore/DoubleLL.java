@@ -10,11 +10,21 @@ public class DoubleLL {
     }
 
     public boolean isEmpty() {
-        return false;
+        return head == null;
     }
 
     //Вставка элемента в начало списка
     public void insertFirst(int data) {
+        System.out.println("insert first -> " + data);
+        DLink e = new DLink(data);
+        if (head == null) {
+            head = e;
+            tail = e;
+        } else {
+            head.previous = e;
+        }
+        e.next = head;
+        head = e;
     }
 
     //Вставка элемента в конец списка
