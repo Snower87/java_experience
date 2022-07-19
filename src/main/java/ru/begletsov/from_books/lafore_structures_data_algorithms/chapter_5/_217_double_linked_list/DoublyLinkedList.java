@@ -3,73 +3,73 @@ package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_5._217
 import ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_5.DLink;
 
 public class DoublyLinkedList {
-    private DLink first;
-    private DLink last;
+    private DLink head;
+    private DLink tail;
 
     public DoublyLinkedList() {
-        first = null;
-        last = null;
+        head = null;
+        tail = null;
     }
 
     public boolean isEmpty() {
-        return first == null;
+        return head == null;
     }
 
     //Вставка элемента в начало списка
     public void insertFirst(int data) {
         System.out.println("insertFirst -> " + data);
-        DLink newLink = new DLink(data);
+        DLink el = new DLink(data);
         if (isEmpty()) {
-            last = newLink;
+            tail = el;
         } else {
-            first.previous = newLink;
+            head.previous = el;
         }
-        newLink.next = first;
-        first = newLink;
+        el.next = head;
+        head = el;
     }
 
     //Вставка элемента в конец списка
     public void insertLast(int data) {
         System.out.println("insertLast -> " + data);
-        DLink newLink = new DLink(data);
+        DLink el = new DLink(data);
         if (isEmpty()) {
-            first = newLink;
+            head = el;
         } else {
-            last.next = newLink;
+            tail.next = el;
         }
-        newLink.previous = last;
-        last = newLink;
+        el.previous = tail;
+        tail = el;
     }
 
     //Удаление первого элемента
     public DLink deleteFirst() {
-        DLink temp = first;
+        DLink temp = head;
         System.out.println("deleteFirst -> " + temp.iData);
-        if (first.next == null) {
-            last = null;
+        if (head.next == null) {
+            tail = null;
         } else {
-            first.next.previous = null;
+            head.next.previous = null;
         }
-        first = first.next;
+        head = head.next;
         return temp;
     }
 
     //Удаление последнего элемента
     public DLink deleteLast() {
-        DLink temp = last;
+        DLink temp = tail;
         System.out.println("deleteLast -> " + temp.iData);
-        if (first.next == null) {
-            first = null;
+        if (head.next == null) {
+            head = null;
         } else {
-            last.previous.next = null;
+            tail.previous.next = null;
         }
-        last = last.previous;
+        tail = tail.previous;
         return temp;
     }
 
     //Вставка данных в позицию после ключа key
     public boolean insertAfter(int key, int data) {
-        DLink current = first;
+        DLink current = head;
         while (current.iData != key) {
             current = current.next;
             if (current == null) {
@@ -78,9 +78,9 @@ public class DoublyLinkedList {
             }
         }
         DLink newLink = new DLink(data);
-        if (current == last) {
+        if (current == tail) {
             newLink.next = null;
-            last = newLink;
+            tail = newLink;
         } else {
             newLink.next = current.next;
             current.next.previous = newLink;
@@ -93,7 +93,7 @@ public class DoublyLinkedList {
 
     //Удаление элмента с заданным ключом
     public DLink deleteKey(int key) {
-        DLink current = first;
+        DLink current = head;
         System.out.println("deleteKey -> " + key);
         while (current.iData != key) {
             current = current.next;
@@ -101,14 +101,14 @@ public class DoublyLinkedList {
                 return null;
             }
         }
-        if (current == first) {
-            first = current.next;
+        if (current == head) {
+            head = current.next;
         } else {
             current.previous.next = current.next;
         }
 
-        if (current == last) {
-            last = current.previous;
+        if (current == tail) {
+            tail = current.previous;
         } else {
             current.next.previous = current.previous;
         }
@@ -118,7 +118,7 @@ public class DoublyLinkedList {
     //Вывод с начала списка
     public void displayForward() {
         System.out.println("sout first -> last << Double Linked List: >>");
-        DLink current = first;
+        DLink current = head;
         while (current != null) {
             current.displayLinkX();
             current = current.next;
@@ -128,7 +128,7 @@ public class DoublyLinkedList {
     //Вывод с конца списка
     public void displayBackward() {
         System.out.println("sout last -> first << Double Linked List: >>");
-        DLink current = last;
+        DLink current = tail;
         while (current != null) {
             current.displayLinkX();
             current = current.previous;
