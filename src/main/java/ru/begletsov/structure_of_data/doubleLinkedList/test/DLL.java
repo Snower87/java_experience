@@ -39,6 +39,30 @@ public class DLL {
         tail = vtx;
     }
 
+    //Удаление первого элемента
+    public DLink deleteFirst() {
+        DLink temp = head;
+        if (head.next == null) {
+            tail = null;
+        } else {
+            head.next.previous = null;
+        }
+        head = head.next;
+        return temp;
+    }
+
+    //Удаление последнего элемента
+    public DLink deleteLast() {
+        DLink temp = tail;
+        if (tail.previous == null) {
+            head = null;
+        } else {
+            tail.previous.next = null;
+        }
+        tail = tail.previous;
+        return temp;
+    }
+
     public void printFirstToLast() {
         DLink temp = head;
         while (temp != null) {

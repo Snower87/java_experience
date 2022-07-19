@@ -28,7 +28,18 @@ public class DLLApplication {
         System.out.println("Вставка элемента " + data + " в конец списка");
         doubleLinkedList.insertLast(data);
 
+        System.out.println();
+        System.out.println("Содержимое всего списка:");
+        doubleLinkedList.printFirstToLast();
 
+        System.out.println("Удаление ПЕРВОГО элемента: " + doubleLinkedList.deleteFirst().data);
+        System.out.println("Удаление ПЕРВОГО элемента: " + doubleLinkedList.deleteFirst().data);
+        System.out.println();
+        System.out.println("Содержимое всего списка:");
+        doubleLinkedList.printFirstToLast();
+
+        System.out.println("Удаление ПОСЛЕДНЕГО элемента: " + doubleLinkedList.deleteLast().data);
+        System.out.println("Удаление ПОСЛЕДНЕГО элемента: " + doubleLinkedList.deleteLast().data);
         System.out.println();
         System.out.println("Содержимое всего списка:");
         doubleLinkedList.printFirstToLast();
