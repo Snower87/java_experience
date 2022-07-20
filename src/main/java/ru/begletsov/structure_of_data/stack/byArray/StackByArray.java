@@ -2,14 +2,15 @@ package ru.begletsov.structure_of_data.stack.byArray;
 
 public class StackByArray {
     private int size = 10;
-    int mass[] = new int[size];
+    private int mass[] = new int[size];
+    private int top = -1;
 
     /**
      * Проверка - стек пустой
      * @return true - да, пустой. false - содержит элементы
      */
     public boolean isEmpty() {
-        return false;
+        return top == -1;
     }
 
     /**
@@ -17,13 +18,25 @@ public class StackByArray {
      * @return true - да, заполнен. false - нет, заполнен не до конца
      */
     public boolean isFull() {
-        return false;
+        return top == size - 1;
+    }
+
+    /**
+     * Получить размер стека
+     * @return
+     */
+    public int getSize() {
+        return size;
     }
 
     /**
      * Очистка стека
      */
     public void clear() {
+        top = -1;
+        for (int i = 0; i < size; i++) {
+            mass[i] = 0;
+        }
     }
 
     /**
