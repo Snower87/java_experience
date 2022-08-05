@@ -23,5 +23,11 @@ public class TreeApp {
         } else {
             System.out.println("Not find!");
         }
+
+        Node min = tree.minimum();
+        System.out.println("Min element: " + min.data);
+
+        Node max = tree.maximum();
+        System.out.println("Max element: " + max.data);
     }
 }

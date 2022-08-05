@@ -4,6 +4,36 @@ public class Tree {
     private Node root;
 
     /**
+     * Поиск минимального узла
+     * @return найденный узел
+     */
+    public Node minimum() {
+        Node current, min;
+        current = root;
+        min = root;
+        while (current != null) {
+            min = current;                 // Сохранение узла
+            current = current.leftChild;   // Переход к левому потомку
+        }
+        return min;
+    }
+
+    /**
+     * Поиск максимального узла
+     * @return найденный узел
+     */
+    public Node maximum() {
+        Node current, max;
+        current = root;
+        max = root;
+        while (current != null) {
+            max = current;
+            current = current.rightChild;
+        }
+        return max;
+    }
+
+    /**
      * Поиск узла с заданным ключом
      * @param key значение ключа
      * @return найденный узел
@@ -12,8 +42,12 @@ public class Tree {
         Node current = root;
         while (current.data != key) {
             if (key < current.data) {
+                System.out.println(key + " < " + current.data
+                        + " -> Going to left child");
                 current = current.leftChild;
             } else {
+                System.out.println(key + " > " + current.data
+                        + " -> Going to right child");
                 current = current.rightChild;
             }
             if (current == null)
