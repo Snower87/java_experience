@@ -3,19 +3,25 @@ package ru.begletsov.from_books.lafore_structures_data_algorithms.chapter_8._355
 public class TreeApp {
     public static void main(String[] args) {
         Tree tree = new Tree();     //создание дерева
-        tree.insert(63);
-        tree.insert(27);
-        tree.insert(80);
-        tree.insert(13);
-        tree.insert(51);
-        tree.insert(70);
-        tree.insert(92);
-        tree.insert(82);
-        tree.insert(26);
-        tree.insert(33);
-        tree.insert(58);
-        tree.insert(57);
-        tree.insert(60);
+//        tree.insert(63);
+//        tree.insert(27);
+//        tree.insert(80);
+//        tree.insert(13);
+//        tree.insert(51);
+//        tree.insert(70);
+//        tree.insert(92);
+//        tree.insert(82);
+//        tree.insert(26);
+//        tree.insert(33);
+//        tree.insert(58);
+//        tree.insert(57);
+//        tree.insert(60);
+
+        //Вставка элементов для отработки удаление узлов дерева
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(3);
+        tree.insert(7);
 
         Node node = tree.find(57);
         if (node != null) {

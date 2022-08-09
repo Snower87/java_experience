@@ -92,10 +92,106 @@ public class Tree {
     }
 
     /**
+     * Метод возвращает узел со следующим значением после delNode
+     * @param delNode
+     * @return Узел дерева
+     */
+    private Node getSuccessor(Node delNode) {
+        Node successorParent = delNode;
+        Node successor = delNode;
+        //переход к правому потомку
+        Node current = delNode.rightChild;
+        //Пока остаются левые потомки
+        while (current != null) {
+            successorParent = successor;
+            successor = current;
+            // Переход к левому потомку
+            current = current.leftChild;
+        }
+        // Если преемник не является правым потомком.
+        if (successor != delNode.rightChild) {
+            successorParent.leftChild = successor.rightChild;
+            successor.rightChild = delNode.rightChild;
+        }
+        return successor;
+    }
+
+    /**
      * Удаление узла по ключу
      * @param id данные
      */
-    public void delete(int id) {
+    public boolean delete(int id) {
+        Node current = root;
+        Node parent = root;
+        boolean isLeftChild = true;
+
+        //Поиск узла
+        while (current.data != id) {
+            parent = current;
+            //Двигаемся налево?
+            if (id < current.data) {
+                isLeftChild = true;
+                current = current.leftChild;
+            } else {
+            //или направо?
+                isLeftChild = false;
+                current = current.rightChild;
+            }
+            //Конец цепочки, узел не найден
+            if (current == null) {
+                return false;
+            }
+        }
+        //Удаляемый узел найден
+        //1. Узел не имеет потомков
+        if (current.leftChild == null && current.rightChild == null) {
+            if (current == root) {
+                root = null;
+            } else if (isLeftChild) {
+                parent.leftChild = null;
+            } else {
+                parent.rightChild = null;
+            }
+        }
+        //2. Узел имеет 1 потомка:
+        //2.а) Если нет правого потомка, узел заменяется левым поддеревом
+        else if (current.rightChild == null) {
+            if (current == root) {
+                root = current.leftChild;
+            } else if (isLeftChild) {
+                parent.leftChild = current.leftChild;
+            } else {
+                parent.rightChild = current.leftChild;
+            }
+        }
+        //2.б) Если нет левого потомка, узел заменяется правым поддеревом
+        else if (current.leftChild == null) {
+            if (current == root) {
+                root = current.rightChild;
+            } else if (isLeftChild) {
+                parent.leftChild = current.rightChild;
+            } else {
+                parent.rightChild = current.rightChild;
+            }
+        }
+        //3. Узел имеет 2 потомка
+        else {
+            // Два потомка, узел заменяется преемником
+            // Поиск преемника для удаляемого узла (current)
+            Node successor = getSuccessor(current);
+            // Родитель current связывается с посредником
+            if(current == root) {
+                root = successor;
+            } else if (isLeftChild) {
+                parent.leftChild = successor;
+            } else {
+                parent.rightChild = successor;
+            }
+            // Преемник связывается с левым потомком current
+            successor.leftChild = current.leftChild;
+        } //конец else для двух потомков
+        // (преемник не может иметь левого потомка
+        return true;
     }
 
     /**
