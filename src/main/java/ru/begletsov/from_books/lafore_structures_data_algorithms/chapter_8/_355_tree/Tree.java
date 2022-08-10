@@ -61,10 +61,10 @@ public class Tree {
      * @param id данные
      */
     public void insert(int id) {
-        Node node = new Node();     //создание нового узла
-        node.data = id;             //вставка узла
+        Node newNode = new Node();     //создание нового узла
+        newNode.data = id;             //вставка узла
         if (root == null) {         //корневой узел не существует
-            root = node;
+            root = newNode;
         } else {                    //корневой узел занят
             Node current = root;
             Node parent;
@@ -75,7 +75,7 @@ public class Tree {
                     //если достигнут конец цепочки,
                     //вставить слева
                     if (current == null) {
-                        parent.leftChild = node;
+                        parent.leftChild = newNode;
                         return;
                     }
                 } else {                 //или направо?
@@ -83,7 +83,7 @@ public class Tree {
                     //если достигнут конец цепочки,
                     //вставить справа
                     if (current == null) {
-                        parent.rightChild = node;
+                        parent.rightChild = newNode;
                         return;
                     }
                 }
@@ -118,18 +118,18 @@ public class Tree {
 
     /**
      * Удаление узла по ключу
-     * @param id данные
+     * @param key данные
      */
-    public boolean delete(int id) {
+    public boolean delete(int key) {
         Node current = root;
         Node parent = root;
         boolean isLeftChild = true;
 
         //Поиск узла
-        while (current.data != id) {
+        while (current.data != key) {
             parent = current;
             //Двигаемся налево?
-            if (id < current.data) {
+            if (key < current.data) {
                 isLeftChild = true;
                 current = current.leftChild;
             } else {
